@@ -1,0 +1,19 @@
+
+.rack {
+  min-width: 150px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  margin: 10px;
+  padding: 10px;
+}
+.server {
+  background-color: #198754;
+  color: white;
+  margin-bottom: 5px;
+  padding: 6px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.server.down { background-color: #dc3545; }
+.server.maintenance { background-color: #fd7e14; }

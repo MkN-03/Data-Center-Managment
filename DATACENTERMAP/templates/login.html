@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Data Center</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-dark bg-secondary p-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/login">
+      <img src="static/nalco-logo.png" alt="Nalco company logo" height="32" width="150" class="d-inline-block align-text-top">
+    </a>
+
+    <!-- Always show hamburger -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks" aria-controls="navbarLinks" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content (always collapsed initially) -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarLinks">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li><hr class="dropdown-divider text-white"></li>
+        <li class="nav-item">
+          <a class="nav-link" href="/help/login">Help</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ✅ LOGIN FORM -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card p-4 shadow">
+        <h3 class="text-center mb-4">NALCO DATA CENTER</h3>
+        <h4 class="text-center mb-3">Login</h4>
+        <form method="POST" action="/login">
+          <div class="mb-3">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+
+        {% if error %}
+          <div class="alert alert-danger mt-3">{{ error }}</div>
+        {% endif %}
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger mt-3">
+              {{ messages[0] }}
+            </div>
+          {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ✅ FOOTER -->
+<footer class="bg-dark text-white text-center py-2 fixed-bottom">
+  <div class="container">
+    <small>
+      &copy; {{ year }} NALCO Data Center Management System &nbsp;|&nbsp;
+      <a href="/help/login" class="text-light text-decoration-underline">Help</a>
+    </small>
+  </div>
+</footer>
+
+</body>
+</html>
